@@ -1,0 +1,13 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  config.vm.box = "centos/7"
+  config.vm.network "Default"
+  config.vm.provider :libvirt do |vb|
+    # Customize the amount of memory on the VM:
+    vb.memory = "8324"
+    vb.cpus = 4
+  end
+end
