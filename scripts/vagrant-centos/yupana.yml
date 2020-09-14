@@ -1,0 +1,9 @@
+---
+- hosts: kube-master
+  become: yes
+  tasks:
+    - name: Setup yupana
+      tags:
+        - pip
+      include_role:
+        name: yupana

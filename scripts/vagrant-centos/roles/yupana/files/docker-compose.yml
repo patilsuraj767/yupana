@@ -27,8 +27,8 @@ services:
       # These vars are defined in .env
       # These are configurable
       # Ensure the directories exist prior to running this file
-      - /var/lib/minio/minio-conf:/root/.minio:Z
-      - /var/lib/minio/minio-data:/data:Z
+      - $MINIO_CONFIG_DIR:/root/.minio:Z
+      - $MINIO_DATA_DIR:/data:Z
     ports:
       - 9000:9000
     environment:
@@ -81,5 +81,5 @@ services:
     ports:
         - '9090:9090'
     volumes:
-        - './scripts/config/prometheus.yml:/etc/prometheus/prometheus.yml'
+        - '/usr/share/yupana/prometheus.yml:/etc/prometheus/prometheus.yml'
     image: prom/prometheus
